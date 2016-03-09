@@ -1,0 +1,24 @@
+body{
+	background-color: gray;
+	position: relative;
+	height: 1000px;
+}
+
+.main{
+	position: relative;
+	margin: 20px 15% 0 15%;
+	padding:2em 4em 2em 4em;
+	background-color: yellow;
+	overflow: auto;
+}
+.box{
+	position: relative;
+	float: left;
+	border: solid 3px red;
+	width: 100px;
+	height: 200px;
+	margin: 1em 0 0 1em;
+}
+.box-end{
+	clear: both;
+}
