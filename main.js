@@ -1,6 +1,7 @@
 
 var listHeight=[];
 var column=0;
+
 function WhenToBottom(){//瀑布流1号
 	$(":text")[0].value=Math.round($(window).scrollTop());
 	$(":text")[1].value=$(document).height();
@@ -17,23 +18,25 @@ function WhenToBottom(){//瀑布流1号
 			{
 				boxlist[i].className="box";
 			}
-			
+			var j=0;
 			for(var i =0;i<boxlist.length;i++)
 				{
-					if(i%6==0)//第一行
+					j=getMin(listHeight);
+					
+					if(j==0)//第一行
 						{
 							
 							var left = ($(".main").width()-column*200-50)/2+'px';
 						}
 					else 
 					{
-						var left =parseInt(boxlist[i-1].style.left)+230+'px';
+						  var left =($(".main").width()-column*200-50)/2+(j)*230+'px';
 					}
-					
+					       
 					boxlist[i].style.bottom="";
 					boxlist[i].style.left=left;
-					boxlist[i].style.top=listHeight[i%6];
-					listHeight[i%6]=parseInt(listHeight[i%6])+parseInt(getComputedStyle(boxlist[i],null)["height"])+30+'px';
+					boxlist[i].style.top=listHeight[j];
+					listHeight[j]=parseInt(listHeight[j])+parseInt(getComputedStyle(boxlist[i],null)["height"])+30+'px';
 					//alert(listHeight);
 				}
 			//alert();
@@ -42,7 +45,8 @@ function WhenToBottom(){//瀑布流1号
 }
 function SetMainHeight (height) {
 	if(!arguments.length)
-		var heights=$(window).height()*2+$(window).scrollTop();
+		var heights=$(window).height()*1.4+$(window).scrollTop();
+
 	else
 	{
 		var heights= height;
@@ -81,26 +85,49 @@ function setList(){
 		
 		if(!listHeight[i])
 		{
-			listHeight[i]=0;
+			listHeight[i]=0+"px";
 		}
 	}
 	boxlist=StartAtLeft(".box");
+	var j=0;
 	for(var i =0;i<boxlist.length;i++)
 	{
-		if(i%6==0)//第一行
+		
+		j=getMin(listHeight);
+		// /alert(j+"---"+listHeight);
+		if(j==0)//第一行
 			{
 				
 				var left = ($(".main").width()-column*200-50)/2+'px';
 			}
 		else 
 		{
-			var left =parseInt(boxlist[i-1].style.left)+230+'px';
+			    var left =($(".main").width()-column*200-50)/2+(j)*230+'px';
+
 		}
 		boxlist[i].style.bottom="";
 		boxlist[i].style.left=left;
-		boxlist[i].style.top=listHeight[i%6];
-		listHeight[i%6]=parseInt(listHeight[i%6])+parseInt(getComputedStyle(boxlist[i],null)["height"])+30+'px';
+		boxlist[i].style.top=listHeight[j];
+		listHeight[j]=parseInt(listHeight[j])+parseInt(getComputedStyle(boxlist[i],null)["height"])+30+'px';
 		//alert(listHeight);
 	}
 	return listHeight;
+}
+function getMin(arry){
+	var aim=new Array(arry.length) ;
+	for(var i = 0;i<arry.length;i++)
+	{	
+
+		aim[i]=(parseInt(arry[i]));
+
+	}
+	// /alert(i);
+	//alert("qian"+aim);
+	function sortNumber(a,b)
+	{
+		return a - b;
+	}
+	aim.sort(sortNumber);
+	//alert("hou"+aim);
+	return arry.indexOf(aim[0]+"px");
 }
