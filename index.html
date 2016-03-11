@@ -1,46 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>WaterFullDemo</title>
-	<link rel="stylesheet" type="text/css" href="./main.css">
-	<script type="text/javascript" src="./jquery-2.2.1.min.js"></script>
-	<script type="text/javascript" src="./main.js"></script>
-</head>
-<body>
-<div class="fix">
-	<input type="text">
-	<input type="text">
-	<input type="text">
-	<input type="text">
-</div>
-	<ul class="main">
-		<li class="box"><img src="./img/1.jpg"/><span>1号</span></li>
-		<li class="box"><img src="./img/2.jpg"/><span>2号</span></li>
-		<li class="box"><img src="./img/3.jpg"/><span>3号</span></li>
-		<li class="box"><img src="./img/4.jpg"/><span>4号</span></li>
-		<li class="box"><img src="./img/5.jpg"/><span>5号</span></li>
-		<li class="box"><img src="./img/6.jpg"/><span>6号</span></li>
-		<li class="box"><img src="./img/7.jpg"/><span>7号</span></li>
-		<li class="box"><img src="./img/8.jpg"/><span>8号</span></li>
-		<li class="box"><img src="./img/9.jpg"/><span>9号</span></li>
-		<li class="box"><img src="./img/10.jpg"/><span>10号</span></li>
-		<li class="box"><img src="./img/10.jpg"/><span>10号</span></li>
-		<li class="box"><img src="./img/10.jpg"/><span>10号</span></li>
-		<li class="box"><img src="./img/10.jpg"/><span>10号</span></li>
-		<li class='box'><img src='./img/2.jpg'/><span>2号</span></li>
-		
-
-		<div class="box-end"></div>
-		
-	</ul>
-</body>
-<script type="text/javascript">
-SetMainHeight($(window).height());
-//setInterval(WhenToBottom,2000);
-//setInterval(StartAtLeft,1000);
-//setInterval(getColumn,1000);
-setList();
-setInterval(WhenToBottom,30);	
-</script>
-</html>
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<title>WaterFullDemo</title>
+				<link rel="stylesheet" type="text/css" href="./main.css">
+				<script type="text/javascript" src="./jquery-2.2.1.min.js"></script>
+				<script type="text/javascript" src="./main.js"></script>
+			</head>
+			<body>
+				<ul class="main">
+					<li class="box"><img src="./img/1.jpg"/><span>1号</span></li>
+					<li class="box"><img src="./img/2.jpg"/><span>2号</span></li>
+					<li class="box"><img src="./img/3.jpg"/><span>3号</span></li>
+					<li class="box"><img src="./img/4.jpg"/><span>4号</span></li>
+					<li class="box"><img src="./img/5.jpg"/><span>5号</span></li>
+					<li class="box"><img src="./img/6.jpg"/><span>6号</span></li>
+					<li class="box"><img src="./img/7.jpg"/><span>7号</span></li>
+					<li class="box"><img src="./img/8.jpg"/><span>8号</span></li>
+					<li class="box"><img src="./img/9.jpg"/><span>9号</span></li>
+					<li class="box"><img src="./img/10.jpg"/><span>10号</span></li>
+					<li class="box"><img src="./img/10.jpg"/><span>10号</span></li>
+					<li class="box"><img src="./img/10.jpg"/><span>10号</span></li>
+					<li class="box"><img src="./img/10.jpg"/><span>10号</span></li>
+					<li class='box'><img src='./img/2.jpg'/><span>2号</span></li>
+				</ul>
+			</body>
+			<script type="text/javascript">
+			SetMainHeight($(window).height());
+			setList();
+			$(window).resize(function(){
+				setList();
+				SetMainHeight();
+			});
+			setInterval(WhenToBottom,30);	
+			</script>
+			</html>
