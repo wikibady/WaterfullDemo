@@ -27,11 +27,17 @@
 			</body>
 			<script type="text/javascript">
 			SetMainHeight($(window).height());
-			setList();
+			$(window).ready(function(){
+				setTimeout(setList,4000);
+				setInterval(WhenToBottom,30);	
+			}
+				
+				)
+			
 			$(window).resize(function(){
 				setList();
 				SetMainHeight();
 			});
-			setInterval(WhenToBottom,30);	
+			
 			</script>
 			</html>

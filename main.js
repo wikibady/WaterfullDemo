@@ -4,7 +4,7 @@
 
 			function WhenToBottom(){//滚动监听，到底部加载
 				if (Math.round($(window).scrollTop()) > Math.round($(document).height()) - Math.round($(window).height())-5) {
-					var list =$(".main");
+					{var list =$(".main");
 					$.ajax({url:"./load.html",data:"html",success:function(result){
 						SetMainHeight();//调用成功更新页面高度
 						list.append(result);//载入数据
@@ -15,7 +15,7 @@
 						}
 						putList(boxlist);//安序排放
 					} })
-				}
+				}}
 			}
 			function SetMainHeight (height) {//改变页面高度
 				if(!arguments.length)
